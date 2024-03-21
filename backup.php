@@ -4,7 +4,7 @@ $db_name = 'radovi';
 $dir = "backup/$db_name";
 
 
-/*-----Provjera postoji li direktorij, ukoliko ne postoji, napravi ga-----*/
+/*-----Provjera postoji li direktorij, ukoliko ne postoji napravi ga-----*/
 if (!is_dir($dir)) {
     if (!mkdir($dir)) {
         die("<p>Ne možemo stvoriti direktorij $dir.</p></body></html>");
@@ -36,7 +36,7 @@ if (mysqli_num_rows($response) > 0) {
             $values = [];
             while ($row = mysqli_fetch_array($r2,MYSQLI_NUM)) {
                 foreach ($row as $value) {
-                /*-----Dohvaceni odaci se odvajaju zarezom-----*/
+                /*-----Dohvaceni podaci se odvajaju zarezom-----*/
                 $value = addslashes($value);
                 $values[] = $value;
                }
