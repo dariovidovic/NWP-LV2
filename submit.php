@@ -12,19 +12,19 @@ $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 
 /*-----Provjera dozvoljenih tipova dokumenta za upload-----*/
 if($imageFileType != "pdf" && $imageFileType != "jpg" && $imageFileType != "jpeg") {
-  echo "Sorry, only PDF, JPG & JPEG files are allowed.";
+  echo "Dozvoljeni tipovi dokumenta: PDF, JPG & JPEG.";
   $uploadOk = 0;
 }
 
 
 /*-----Provjera je li dokument za upload prevelik-----*/
 if ($_FILES["file"]["size"] > 5000000) {
-    echo "Sorry, your file is too large.";
+    echo "Dokument je prevelik.";
     $uploadOk = 0;
 }
 
 if ($uploadOk == 0) {
-    echo "Sorry, your file was not uploaded.";
+    echo "Dokument nije pohranjen.";
   } else {
 
     if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_file)) {
@@ -49,7 +49,7 @@ if ($uploadOk == 0) {
         echo "Dokument je uspješno pohranjen i enkriptiran.";
     
       } else {
-        echo "Sorry, there was an error uploading your file.";
+        echo "Pogreška prilikom pohrane dokumenta.";
       }
 
   }
